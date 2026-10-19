@@ -1,0 +1,15 @@
+services:
+  guardbench:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      GUARDBENCH_MODEL: ${GUARDBENCH_MODEL:-gpt-4o-mini}
+      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-}
+    volumes:
+      - guardbench-data:/app/data
+      - guardbench-artifacts:/app/artifacts
+volumes:
+  guardbench-data:
+  guardbench-artifacts:
