@@ -1,0 +1,17 @@
+{
+  "id": "my_app_v1",
+  "name": "我的文档校对应用 v1",
+  "base_url": "http://127.0.0.1:9000",
+  "endpoint": "/proofread",
+  "version": "v1",
+  "text_field": "text",
+  "session_field": "session_id",
+  "user_field": "user_id",
+  "issues_field": "issues",
+  "trace_field": "_trace",
+  "auth_env": "MY_APP_TOKEN",
+  "timeout_seconds": 10,
+  "supports_sessions": true,
+  "supports_trace": false,
+  "model_config_snapshot": {"model": "填写被测模型名", "temperature": 0, "prompt_version": "v1"}
+}

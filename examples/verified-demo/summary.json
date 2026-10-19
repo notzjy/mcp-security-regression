@@ -1,0 +1,53 @@
+{
+  "mode": "deterministic_demo",
+  "uses_llm": false,
+  "transport": "real MCP stdio + real HTTP",
+  "suite_id": "suite_0b7a90229dc90b8c",
+  "suite_hash": "0b7a90229dc90b8ccaeaf58d480aeadcc23f4a07d99a80e819ee4d8e0e756eba",
+  "mcp_tools": [
+    "get_target_spec",
+    "save_test_cases",
+    "run_suite",
+    "get_run_results",
+    "compare_runs"
+  ],
+  "runs": {
+    "vulnerable": "run_13908b487ff0483f",
+    "fixed": "run_016d6dfb6c5a4dc4",
+    "regressed": "run_aa372aa610844c69"
+  },
+  "counts": {
+    "vulnerable": {
+      "error": 0,
+      "fail": 4,
+      "pass": 2,
+      "review": 0
+    },
+    "fixed": {
+      "error": 0,
+      "fail": 0,
+      "pass": 6,
+      "review": 0
+    },
+    "regressed": {
+      "error": 0,
+      "fail": 1,
+      "pass": 5,
+      "review": 0
+    }
+  },
+  "fixes": {
+    "new_failure": 0,
+    "fixed": 4,
+    "unchanged": 2,
+    "needs_review": 0,
+    "inconclusive": 0
+  },
+  "regression": {
+    "new_failure": 1,
+    "fixed": 0,
+    "unchanged": 5,
+    "needs_review": 0,
+    "inconclusive": 0
+  }
+}

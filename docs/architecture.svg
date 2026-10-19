@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1140" height="1190" viewBox="0 0 1140 1190" role="img" aria-labelledby="title desc">
+<title id="title">GuardBench 多 Agent 与 MCP 安全回归流程</title>
+<desc id="desc">设计 Agent 保存冻结用例，控制器通过 MCP 运行两个版本，HTTP 执行与规则检查写入证据库，分析 Agent 读取比较并给出报告和有界反馈。</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#668298"/></marker><style>text{font-family:"Noto Sans CJK SC","Microsoft YaHei","PingFang SC",sans-serif;fill:#203f58}.title{font-size:28px;font-weight:700}.label{font-size:19px;font-weight:600}.sub{font-size:14px;fill:#597487}.note{font-size:13px;fill:#597487}.line{fill:none;stroke:#668298;stroke-width:2;marker-end:url(#arrow)}.box{fill:#fff;stroke:#c9d9e5;stroke-width:1.5;rx:12}.agent{fill:#e7f5f1;stroke:#5cb9a3}.tool{fill:#eaf1fb;stroke:#709ccc}</style></defs>
+<rect width="1140" height="1190" fill="#f3f7fa"/>
+<text x="60" y="57" class="title">GuardBench · MCP + 双 Agent 安全回归</text>
+<text x="60" y="88" class="sub">真实工具调用 / 固定用例 / 原始证据 / 有界反馈</text>
+<rect class="box" x="330" y="120" width="470" height="74"/><text x="565" y="150" text-anchor="middle" class="label">配置两个应用版本与业务合同</text><text x="565" y="175" text-anchor="middle" class="sub">模型配置快照 · 会话与 trace 能力声明</text>
+<path class="line" d="M565 194V224"/>
+<rect class="box agent" x="330" y="230" width="470" height="82"/><text x="565" y="264" text-anchor="middle" class="label">用例设计 Agent</text><text x="565" y="289" text-anchor="middle" class="sub">mcp-agent · 独立指令与设计工具权限</text>
+<path class="line" d="M565 312V345"/>
+<rect class="box tool" x="330" y="350" width="470" height="82"/><text x="565" y="384" text-anchor="middle" class="label">MCP：读取规格 / 保存候选</text><text x="565" y="410" text-anchor="middle" class="sub">保留基础对照 → 输入校验 → 冻结 suite hash</text>
+<path class="line" d="M565 432V465"/>
+<rect class="box tool" x="330" y="470" width="470" height="82"/><text x="565" y="504" text-anchor="middle" class="label">控制器 → MCP run_suite</text><text x="565" y="530" text-anchor="middle" class="sub">同一个冻结用例集分别执行基线与候选</text>
+<path class="line" d="M565 552V585"/>
+<rect class="box" x="330" y="590" width="470" height="90"/><text x="565" y="624" text-anchor="middle" class="label">HTTPX 真实请求 + 确定性规则</text><text x="565" y="650" text-anchor="middle" class="sub">输出合同 · 跨用户合成标记 · 工具 allowlist</text>
+<rect class="box" x="868" y="590" width="225" height="90"/><text x="980" y="623" text-anchor="middle" class="label">待测应用 API</text><text x="980" y="650" text-anchor="middle" class="sub">基线 / 候选版本</text>
+<path class="line" d="M800 615H860"/><path class="line" d="M868 658H808"/>
+<text x="842" y="574" text-anchor="middle" class="note">HTTP</text>
+<path class="line" d="M565 680V713"/>
+<rect class="box" x="330" y="718" width="470" height="82"/><text x="565" y="752" text-anchor="middle" class="label">SQLite 证据与审计</text><text x="565" y="778" text-anchor="middle" class="sub">请求 · 响应 · 耗时 · 判定 · 应用提供的 trace</text>
+<path class="line" d="M565 800V833"/>
+<rect class="box agent" x="330" y="838" width="470" height="90"/><text x="565" y="872" text-anchor="middle" class="label">结果分析 Agent</text><text x="565" y="898" text-anchor="middle" class="sub">MCP 读取双方证据 / 比较版本 / 引用步骤</text>
+<path class="line" d="M565 928V961"/>
+<rect class="box" x="330" y="966" width="470" height="82"/><text x="565" y="1000" text-anchor="middle" class="label">回归差异与可下载报告</text><text x="565" y="1026" text-anchor="middle" class="sub">new_failure / fixed / needs_review / inconclusive</text>
+<path d="M330 880H180V270H322" fill="none" stroke="#23a58c" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#arrow)"/>
+<rect x="40" y="478" width="238" height="96" rx="10" fill="#e7f5f1"/>
+<text x="159" y="510" text-anchor="middle" class="label">补测建议</text><text x="159" y="537" text-anchor="middle" class="sub">最多再 1 轮</text><text x="159" y="558" text-anchor="middle" class="note">新 suite 内重跑两个版本</text>
+<text x="60" y="1110" class="note">传输：独立进程 stdio MCP；两个 Agent 使用实际 mcp-agent 框架。</text>
+<text x="60" y="1138" class="note">规则决定 pass / fail / review / error；模型负责设计与解释，不能改写确定性结果。</text>
+<text x="60" y="1166" class="note">无模型密钥的演示使用明确标注的应用夹具；工具与 HTTP 执行保持真实。</text>
+</svg>
